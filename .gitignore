@@ -1,0 +1,4 @@
+firmware/src/Debug/
+firmware/src/Release/
+firmware/TcfTransactionLog.csv
+firmware/debug_InProgress.tmp
