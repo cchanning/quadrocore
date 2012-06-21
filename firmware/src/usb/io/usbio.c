@@ -154,7 +154,7 @@ USBControlTransfer_t* USBBeginControlTransfer(USBEndpoint_t *usbEndpointP)
 	usbTransferP->usbEndpointP = usbEndpointP;
 	usbTransferP->usbTransferStage = USB_TRANSFER_STAGE_INITIAL;
 	memcpy((ptr_t)usbTransferP->usbRequestP, (ptr_t)usbTransferP->usbEndpointP->usbEndpointOutPipeP->dataBufferP, usbTransferP->usbEndpointP->usbEndpointConfigurationP->bufferSize);
-	USBParseStandardRequestMetaData(usbTransferP);
+	USBDeviceParseStandardRequestMetaData(usbTransferP);
 		
 	return usbTransferP;	
 }
@@ -276,7 +276,7 @@ void USBProcessControlTransferInput(USBControlTransfer_t *usbControlTransferP)
 
 bool_t USBProcessControlTransferRequest(USBControlTransfer_t *usbControlTransferP)
 {
-	if (! USBProcessStandardRequest(usbControlTransferP))
+	if (! USBDeviceProcessStandardRequest(usbControlTransferP))
 	{
 		USBEndpointSetStalled(usbControlTransferP->usbEndpointP);
 		USBEndControlTransfer(usbControlTransferP->usbEndpointP);

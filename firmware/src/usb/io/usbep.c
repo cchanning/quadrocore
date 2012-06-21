@@ -222,18 +222,3 @@ inline USBEndpoint_t* USBEndpointGetDefault(void)
 {
 	return USBEndpointGetByNumber(0);
 }
-
-USBEndpoint_t* USBEndpointTxQueueGetNext(void)
-{
-	// note that reading this register causes the USB module adjust the pointer in hardware
-	sint8_t fifoRP = (sint8_t)USB.FIFORP;
-	//note that reading this register has no affect on the pointer
-	sint8_t fifoWP = (sint8_t)USB.FIFOWP;
-	
-	if (fifoRP == fifoWP)
-	{
-		return NULL;
-	}
-	
-	return (USBEndpoint_t *)((USBEndpointTableGetBaseAddress() + 2) * fifoRP);
-}

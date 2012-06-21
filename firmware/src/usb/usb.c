@@ -19,14 +19,38 @@
 
 #include "quadrocore.h"
 
-bool_t USBModuleInit(const USBConfiguration_t *usbConfigurationP)
+bool_t USBModuleInit(void)
 {
-	if (! USBEndpointTableInit(&usbConfigurationP->usbEndpointTableConfiguration))
+	const USBConfiguration_t const usbConfiguration =
+	{
+		.usbControlTransferBufferSize = 128,
+		.usbEndpointTableConfiguration =
+		{
+			.endpointCount = 2,
+			.maxPacketSize = 8,
+			.endpointConfiguration[0] =
+			{
+				.type = USB_ENDPOINT_TYPE_CONTROL,
+				.bufferSize = 8,
+				.bufferType = USB_EP_BUFSIZE_8_gc,
+				.maxPacketSize = 8
+			},
+			.endpointConfiguration[1] =
+			{
+				.type = USB_ENDPOINT_TYPE_INTERRUPT,
+				.bufferSize = 8,
+				.bufferType = USB_EP_BUFSIZE_8_gc,
+				.maxPacketSize = 8
+			}
+		}
+	};
+	
+	if (! USBEndpointTableInit(&usbConfiguration.usbEndpointTableConfiguration))
 	{
 		return false;	
 	}
 	
-	if (! USBTransferTableInit(usbConfigurationP->usbControlTransferBufferSize, usbConfigurationP->usbEndpointTableConfiguration.endpointCount))
+	if (! USBTransferTableInit(usbConfiguration.usbControlTransferBufferSize, usbConfiguration.usbEndpointTableConfiguration.endpointCount))
 	{
 		return false;
 	}		
@@ -48,7 +72,7 @@ bool_t USBModuleInit(const USBConfiguration_t *usbConfigurationP)
 	// set the PLL as the USB clock source, enable the USB clock source (start feeding the USB module clock signals)
 	SetProtectedMemory(&CLK.USBCTRL, CLK_USBSRC_PLL_gc | CLK_USBSEN_bm);
 	
-	USB.CTRLA = USB_ENABLE_bm | USB_SPEED_bm | usbConfigurationP->usbEndpointTableConfiguration.endpointCount;
+	USB.CTRLA = USB_ENABLE_bm | USB_SPEED_bm | usbConfiguration.usbEndpointTableConfiguration.endpointCount;
 	
 	// attach the USB module to the bus (allows the host to start the enumeration process)
 	USB.CTRLB = USB_ATTACH_bm;

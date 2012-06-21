@@ -71,7 +71,6 @@ ISR(USB_TRNCOMPL_vect)
 {
 	DisableGlobalInterrupts();
 	{	
-		//stub out the endpoint to be the default for now (until we start using the FIFO)
 		USBEndpoint_t *usbEndpointP = USBEndpointGetDefault();
 
 		if (USB.INTFLAGSBSET & USB_SETUPIF_bm)

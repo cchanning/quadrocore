@@ -19,9 +19,9 @@
 
 #include "quadrocore.h"
 
-void PMICInit(uint8_t level)
+void PMICInit(void)
 {
-	PMIC.CTRL = level;
+	PMIC.CTRL = PMIC_HILVLEN_bm;
 }
 
 void EnableGlobalInterrupts(void)

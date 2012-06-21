@@ -21,7 +21,7 @@
 #define PMIC_H_
 
 
-void PMICInit(uint8_t level);
+void PMICInit(void);
 void EnableGlobalInterrupts(void);
 void DisableGlobalInterrupts(void);
 

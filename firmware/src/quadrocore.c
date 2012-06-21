@@ -20,36 +20,12 @@
 #include "quadrocore.h"
 
 int main(void)
-{
-	const USBConfiguration_t const usbConfiguration = 
-	{
-		.usbControlTransferBufferSize = 128,
-		.usbEndpointTableConfiguration = 
-		{
-			.endpointCount = 2,
-			.maxPacketSize = 8,
-			.endpointConfiguration[0] = 
-			{
-				.type = USB_ENDPOINT_TYPE_CONTROL,
-				.bufferSize = 8,
-				.bufferType = USB_EP_BUFSIZE_8_gc,
-				.maxPacketSize = 8
-			},
-			.endpointConfiguration[1] = 
-			{
-				.type = USB_ENDPOINT_TYPE_INTERRUPT,
-				.bufferSize = 8,
-				.bufferType = USB_EP_BUFSIZE_8_gc,
-				.maxPacketSize = 8
-			}
-		}			
-	};
-	
+{	
 	DisableGlobalInterrupts();
 	{
 		SystemClockInit();
-		PMICInit(PMIC_HILVLEN_bm);
-		USBModuleInit(&usbConfiguration);
+		PMICInit();
+		USBModuleInit();
 	}
 	EnableGlobalInterrupts();
 	

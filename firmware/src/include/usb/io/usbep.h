@@ -83,7 +83,6 @@ uint16_t USBEndpointTableGetBaseAddress(void);
 USBEndpoint_t* USBEndpointGetByPipe(USBEndpointPipe_t *usbEndpointPipeP);
 USBEndpoint_t* USBEndpointGetByNumber(uint8_t endpointNumber);
 USBEndpoint_t* USBEndpointGetDefault(void);
-USBEndpoint_t* USBEndpointTxQueueGetNext(void);
 
 void USBEndpointReset(USBEndpoint_t *usbEndpointP);
 void USBEndpointResetAll(void);
