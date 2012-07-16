@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quadroconsole", "quadroconsole\quadroconsole.vcxproj", "{F01B31BB-3C1E-4697-969B-6D8BEEB2B3AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F01B31BB-3C1E-4697-969B-6D8BEEB2B3AE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F01B31BB-3C1E-4697-969B-6D8BEEB2B3AE}.Debug|Win32.Build.0 = Debug|Win32
+		{F01B31BB-3C1E-4697-969B-6D8BEEB2B3AE}.Release|Win32.ActiveCfg = Release|Win32
+		{F01B31BB-3C1E-4697-969B-6D8BEEB2B3AE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

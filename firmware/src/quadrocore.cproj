@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.0</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8</ToolchainName>
+    <ProjectGuid>{d953318f-6be5-4392-b24d-9e2c0abecc4e}</ProjectGuid>
+    <avrdevice>ATxmega256A3BU</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>quadrocore</AssemblyName>
+    <Name>quadrocore</Name>
+    <RootNamespace>quadrocore</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <AsfVersion>2.9.0</AsfVersion>
+    <avrtoolinterface />
+    <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
+    <com_atmel_avrdbg_tool_simulator>
+      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolName xmlns="">AVR Simulator</ToolName>
+      <ToolNumber xmlns="">
+      </ToolNumber>
+      <Channel xmlns="">
+        <host>127.0.0.1</host>
+        <port>49716</port>
+        <ssl>False</ssl>
+      </Channel>
+    </com_atmel_avrdbg_tool_simulator>
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <files />
+        <documentation help="" />
+      </framework-data>
+    </AsfFrameworkConfig>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <OverrideVtorValue />
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGcc xmlns="">
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../include</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGcc xmlns="">
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>../include</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.DebugLevel>Maximum (-g3)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.miscellaneous.Verbose>True</avrgcc.compiler.miscellaneous.Verbose>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="cpu\ccp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="cpu\clock.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="cpu\cpu.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="cpu\pmic.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="cpu\port.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\cpu\ccp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\cpu\clock.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\cpu\cpu.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\cpu\pmic.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\cpu\port.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\lcd\lcd.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\quadrocore.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\type\typedefs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\type\vector.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\type\type.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\type\unicode.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\usb\io\usbep.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\usb\io\usbhidio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\usb\io\usbio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\usb\io\usbstdio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\usb\usb.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd\lcd.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="quadrocore.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="type\vector.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="usb\io\usbep.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="usb\io\usbhidio.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="usb\io\usbio.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="usb\io\usbstdio.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="usb\usb.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="usb\usbint.c">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="include" />
+    <Folder Include="include\cpu" />
+    <Folder Include="include\lcd" />
+    <Folder Include="include\type" />
+    <Folder Include="include\usb" />
+    <Folder Include="include\usb\io" />
+    <Folder Include="cpu" />
+    <Folder Include="lcd" />
+    <Folder Include="type" />
+    <Folder Include="usb" />
+    <Folder Include="usb\io" />
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
