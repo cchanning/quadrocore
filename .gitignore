@@ -1,0 +1,7 @@
+firmware/src/Debug/
+firmware/src/Release/
+ui/quadroconsole/src/ipch
+ui/quadroconsole/src/Debug/
+ui/quadroconsole/src/Release/
+ui/quadroconsole/src/quadroconsole/Debug/
+ui/quadroconsole/src/quadroconsole/Release/
